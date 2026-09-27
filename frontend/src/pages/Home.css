@@ -1,0 +1,59 @@
+.hero {
+  height: 100vh;
+  min-height: 620px;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--primary);
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+
+.hero-inner {
+  padding-bottom: 120px;
+  max-width: 640px;
+}
+
+.hero-title {
+  font-size: clamp(32px, 5vw, 52px);
+  color: #fff;
+  margin-bottom: 32px;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 36px;
+  right: 40px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0.7;
+  writing-mode: vertical-rl;
+  animation: drift 2.4s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.grid-card-link {
+  display: block;
+}
+
+@media (max-width: 860px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .hero-inner {
+    padding-bottom: 80px;
+  }
+}

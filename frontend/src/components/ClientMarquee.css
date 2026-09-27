@@ -1,0 +1,61 @@
+.marquee {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: train-move 48s linear infinite;
+}
+
+/* Pause on hover so a name can actually be read */
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Left-to-right: track starts shifted left, eases back to its natural
+   position, so each car visibly travels rightward across the row.
+   To reverse (right-to-left), swap the two transform values below. */
+@keyframes train-move {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0%); }
+}
+
+.train-car {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 28px;
+  margin: 0 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+
+.train-car img {
+  height: 56px;
+  width: 160px;
+  object-fit: contain;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+}
+
+.train-car:hover img {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .train-car {
+    padding: 14px 20px;
+    margin: 0 8px;
+  }
+  .train-car img {
+    height: 44px;
+    width: 120px;
+  }
+}

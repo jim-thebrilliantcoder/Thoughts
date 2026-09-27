@@ -1,0 +1,16 @@
+.page-top {
+  padding-top: 160px;
+}
+
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 48px;
+  border-bottom: 1px solid var(--line);
+}
+
+@media (max-width: 720px) {
+  .services-list {
+    grid-template-columns: 1fr;
+  }
+}
